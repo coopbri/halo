@@ -1,3 +1,6 @@
+> [!WARNING]
+> This project was recently forked from Vendure v2 (MIT) due to Vendure switching to a copyleft license (GPLv3). Expect codebase turbulence and **do not** use this in production yet. Credit will be given to the original authors of this project.
+
 # Vendure
 
 An open-source headless commerce platform built on [Node.js](https://nodejs.org) with [GraphQL](https://graphql.org/), [Nest](https://nestjs.com/) & [TypeScript](http://www.typescriptlang.org/), with a focus on developer productivity and ease of customization.
