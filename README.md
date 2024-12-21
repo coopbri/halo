@@ -44,7 +44,7 @@ Note that this can take a few minutes.
 
 ### 3. Set up the server
 
-The server requires an SQL database to be available. The simplest option is to use SQLite, but if you have Docker available you can use the [dev-server docker-compose file](./packages/dev-server/docker-compose.yml) which will start up both MariaDB and Postgres as well as their GUI management tools.
+The server requires an SQL database to be available. The simplest option is to use SQLite, but if you have Docker available you can use the [dev-server docker-compose file](./packages/dev-server/docker-compose.yml) which will start up Postgres as well as their GUI management tools.
 
 Halo uses [TypeORM](http://typeorm.io), and officially supports **PostgreSQL**.
 

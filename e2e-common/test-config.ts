@@ -72,15 +72,6 @@ function getDbConfig(): DataSourceOptions {
                 username: 'admin',
                 password: 'secret',
             };
-        case 'mariadb':
-            return {
-                synchronize: true,
-                type: 'mariadb',
-                host: '127.0.0.1',
-                port: process.env.CI ? +(process.env.E2E_MARIADB_PORT || 3306) : 3306,
-                username: 'root',
-                password: '',
-            };
         case 'sqljs':
         default:
             return defaultTestConfig.dbConnectionOptions;
