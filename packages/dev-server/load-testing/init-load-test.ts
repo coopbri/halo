@@ -11,7 +11,6 @@ import { initialData } from '../../core/mock-data/data-sources/initial-data';
 
 import {
     getLoadTestConfig,
-    getMysqlConnectionOptions,
     getPostgresConnectionOptions,
     getProductCount,
     getProductCsvFilePath,
@@ -86,58 +85,26 @@ if (require.main === module) {
  */
 async function isDatabasePopulated(databaseName: string): Promise<boolean> {
     const isPostgres = process.env.DB === 'postgres';
-    if (isPostgres) {
-        console.log('Checking whether data is populated (postgres)');
-        const pg = require('pg');
-        const postgresConnectionOptions = getPostgresConnectionOptions(databaseName);
-        const client = new pg.Client({
-            host: postgresConnectionOptions.host,
-            user: postgresConnectionOptions.username,
-            database: postgresConnectionOptions.database,
-            password: postgresConnectionOptions.password,
-            port: postgresConnectionOptions.port,
-        });
-        await client.connect();
-        try {
-            const res = await client.query('SELECT COUNT(id) as prodCount FROM product');
-            return true;
-        } catch (e: any) {
-            if (e.message === 'relation "product" does not exist') {
-                return false;
-            }
-            throw e;
+
+    console.log('Checking whether data is populated (postgres)');
+    const pg = require('pg');
+    const postgresConnectionOptions = getPostgresConnectionOptions(databaseName);
+    const client = new pg.Client({
+        host: postgresConnectionOptions.host,
+        user: postgresConnectionOptions.username,
+        database: postgresConnectionOptions.database,
+        password: postgresConnectionOptions.password,
+        port: postgresConnectionOptions.port,
+    });
+    await client.connect();
+    try {
+        const res = await client.query('SELECT COUNT(id) as prodCount FROM product');
+        return true;
+    } catch (e: any) {
+        if (e.message === 'relation "product" does not exist') {
+            return false;
         }
-    } else {
-        const mysql = require('mysql');
-
-        const mysqlConnectionOptions = getMysqlConnectionOptions(databaseName);
-        const connection = mysql.createConnection({
-            host: mysqlConnectionOptions.host,
-            user: mysqlConnectionOptions.username,
-            password: mysqlConnectionOptions.password,
-            database: mysqlConnectionOptions.database,
-        });
-
-        return new Promise<boolean>((resolve, reject) => {
-            connection.connect((error: any) => {
-                if (error) {
-                    reject(error);
-                    return;
-                }
-
-                connection.query('SELECT COUNT(id) as prodCount FROM product', (err: any, results: any) => {
-                    if (err) {
-                        if (err.code === 'ER_NO_SUCH_TABLE') {
-                            resolve(false);
-                            return;
-                        }
-                        reject(err);
-                        return;
-                    }
-                    resolve(true);
-                });
-            });
-        });
+        throw e;
     }
 }
 

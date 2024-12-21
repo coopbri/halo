@@ -45,14 +45,13 @@ const QUANTITY_PER_ORDER_LINE = 5;
 
 interface Options {
     script?: string;
-    db: 'mysql' | 'postgres';
+    db: 'postgres';
     populate?: boolean;
     variant?: string;
 }
 
 program
     .option('--script <script>', 'Specify the k6 script to run')
-    .option('--db <db>', 'Select which database to test against', /^(mysql|postgres)$/, 'mysql')
     .option('--populate', 'Whether to populate the database')
     .option('--variant <variant>', 'Which variant of the given script')
     .parse(process.argv);

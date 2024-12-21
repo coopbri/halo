@@ -3,7 +3,6 @@ import fs from 'fs-extra';
 import path from 'path';
 import pc from 'picocolors';
 import { Connection, createConnection, DataSourceOptions } from 'typeorm';
-import { MysqlDriver } from 'typeorm/driver/mysql/MysqlDriver';
 import { camelCase } from 'typeorm/util/StringUtils';
 
 import { preBootstrapConfig } from './bootstrap';
@@ -129,47 +128,24 @@ export async function generateMigration(
     const downSqls: string[] = [];
     let migrationName: string | undefined;
 
-    // mysql is exceptional here because it uses ` character in to escape names in queries, that's why for mysql
-    // we are using simple quoted string instead of template string syntax
-    if (connection.driver instanceof MysqlDriver) {
-        sqlInMemory.upQueries.forEach(upQuery => {
-            upSqls.push(
-                '        await queryRunner.query("' +
-                    upQuery.query.replace(new RegExp('"', 'g'), '\\"') +
-                    '", ' +
-                    JSON.stringify(upQuery.parameters) +
-                    ');',
-            );
-        });
-        sqlInMemory.downQueries.forEach(downQuery => {
-            downSqls.push(
-                '        await queryRunner.query("' +
-                    downQuery.query.replace(new RegExp('"', 'g'), '\\"') +
-                    '", ' +
-                    JSON.stringify(downQuery.parameters) +
-                    ');',
-            );
-        });
-    } else {
-        sqlInMemory.upQueries.forEach(upQuery => {
-            upSqls.push(
-                '        await queryRunner.query(`' +
-                    upQuery.query.replace(new RegExp('`', 'g'), '\\`') +
-                    '`, ' +
-                    JSON.stringify(upQuery.parameters) +
-                    ');',
-            );
-        });
-        sqlInMemory.downQueries.forEach(downQuery => {
-            downSqls.push(
-                '        await queryRunner.query(`' +
-                    downQuery.query.replace(new RegExp('`', 'g'), '\\`') +
-                    '`, ' +
-                    JSON.stringify(downQuery.parameters) +
-                    ');',
-            );
-        });
-    }
+    sqlInMemory.upQueries.forEach(upQuery => {
+        upSqls.push(
+            '        await queryRunner.query(`' +
+                upQuery.query.replace(new RegExp('`', 'g'), '\\`') +
+                '`, ' +
+                JSON.stringify(upQuery.parameters) +
+                ');',
+        );
+    });
+    sqlInMemory.downQueries.forEach(downQuery => {
+        downSqls.push(
+            '        await queryRunner.query(`' +
+                downQuery.query.replace(new RegExp('`', 'g'), '\\`') +
+                '`, ' +
+                JSON.stringify(downQuery.parameters) +
+                ');',
+        );
+    });
 
     if (upSqls.length) {
         if (options.name) {

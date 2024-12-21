@@ -128,7 +128,7 @@ export const defaultConfig: RuntimeVendureConfig = {
     },
     dbConnectionOptions: {
         timezone: 'Z',
-        type: 'mysql',
+        type: 'postgres',
     },
     entityOptions: {
         moneyStrategy: new DefaultMoneyStrategy(),

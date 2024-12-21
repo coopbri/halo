@@ -1,6 +1,5 @@
 import { mergeConfig } from '@vendure/core';
 import {
-    MysqlInitializer,
     PostgresInitializer,
     registerInitializer,
     SqljsInitializer,
@@ -32,8 +31,6 @@ const packageDir = getPackageDir();
 
 registerInitializer('sqljs', new SqljsInitializer(path.join(packageDir, '__data__')));
 registerInitializer('postgres', new PostgresInitializer());
-registerInitializer('mysql', new MysqlInitializer());
-registerInitializer('mariadb', new MysqlInitializer());
 
 export const testConfig = () => {
     // @ts-ignore
@@ -81,15 +78,6 @@ function getDbConfig(): DataSourceOptions {
                 type: 'mariadb',
                 host: '127.0.0.1',
                 port: process.env.CI ? +(process.env.E2E_MARIADB_PORT || 3306) : 3306,
-                username: 'root',
-                password: '',
-            };
-        case 'mysql':
-            return {
-                synchronize: true,
-                type: 'mysql',
-                host: '127.0.0.1',
-                port: process.env.CI ? +(process.env.E2E_MYSQL_PORT || 3306) : 3306,
                 username: 'root',
                 password: '',
             };

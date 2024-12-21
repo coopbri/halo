@@ -438,9 +438,7 @@ describe('Custom fields', () => {
             floatWithDefault: 5.5678,
             booleanWithDefault: true,
             dateTimeWithDefault: '2019-04-30T12:59:16.415Z',
-            // MySQL does not support defaults on TEXT fields, which is what "simple-json" uses
-            // internally. See https://stackoverflow.com/q/3466872/772859
-            stringListWithDefault: customConfig.dbConnectionOptions.type === 'mysql' ? null : ['cat'],
+            stringListWithDefault: ['cat'],
         };
 
         expect(product).toEqual({
@@ -1139,10 +1137,6 @@ describe('Custom fields', () => {
             } catch (e: any) {
                 let duplicateKeyErrMessage = 'unassigned';
                 switch (customConfig.dbConnectionOptions.type) {
-                    case 'mariadb':
-                    case 'mysql':
-                        duplicateKeyErrMessage = "ER_DUP_ENTRY: Duplicate entry 'foo' for key";
-                        break;
                     case 'postgres':
                         duplicateKeyErrMessage = 'duplicate key value violates unique constraint';
                         break;

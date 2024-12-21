@@ -233,11 +233,8 @@ function convertDate(input: Date | string | number): string | number {
  */
 function getRegexpClause(fieldName: string, argIndex: number, dbType: DataSourceOptions['type']): string {
     switch (dbType) {
-        case 'mariadb':
-        case 'mysql':
         case 'sqljs':
         case 'better-sqlite3':
-        case 'aurora-mysql':
             return `${fieldName} REGEXP :arg${argIndex}`;
         case 'postgres':
         case 'aurora-postgres':

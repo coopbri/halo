@@ -202,8 +202,7 @@ as either a `path` (to a file or URL) or as `content` which can be a string, Buf
 
 **Note:** When using the `content` to pass a Buffer or Stream, the raw data will get serialized
 into the job queue. For this reason the total size of all attachments passed as `content` should kept to
-**less than ~50k**. If the attachments are greater than that limit, a warning will be logged and
-errors may result if using the DefaultJobQueuePlugin with certain DBs such as MySQL/MariaDB.
+**less than ~50k**. If the attachments are greater than that limit, a warning will be logged.
 
 *Example*
 

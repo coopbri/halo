@@ -13,19 +13,6 @@ import {
 } from '@vendure/core';
 import path from 'path';
 
-export function getMysqlConnectionOptions(databaseName: string) {
-    return {
-        type: 'mysql' as const,
-        host: '127.0.0.1',
-        port: 3306,
-        username: 'root',
-        password: '',
-        database: databaseName,
-        extra: {
-            // connectionLimit: 150,
-        },
-    };
-}
 export function getPostgresConnectionOptions(databaseName: string) {
     return {
         type: 'postgres' as const,
@@ -40,12 +27,10 @@ export function getPostgresConnectionOptions(databaseName: string) {
 export function getLoadTestConfig(
     tokenMethod: 'cookie' | 'bearer',
     databaseName: string,
-    db?: 'postgres' | 'mysql',
+    db?: 'postgres',
 ): Required<VendureConfig> {
-    const connectionOptions =
-        process.env.DB === 'postgres' || db === 'postgres'
-            ? getPostgresConnectionOptions(databaseName)
-            : getMysqlConnectionOptions(databaseName);
+    const connectionOptions = getPostgresConnectionOptions(databaseName);
+
     return mergeConfig(defaultConfig, {
         paymentOptions: {
             paymentMethodHandlers: [dummyPaymentHandler],

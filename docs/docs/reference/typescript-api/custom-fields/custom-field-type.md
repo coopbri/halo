@@ -14,18 +14,18 @@ import MemberDescription from '@site/src/components/MemberDescription';
 <GenerationInfo sourceFile="packages/common/src/shared-types.ts" sourceLine="103" packageName="@vendure/common" />
 
 A data type for a custom field. The CustomFieldType determines the data types used in the generated
-database columns and GraphQL fields as follows (key: m = MySQL, p = Postgres, s = SQLite):
+database columns and GraphQL fields as follows (key: p = Postgres, s = SQLite):
 
 Type         | DB type                               | GraphQL type
 -----        |---------                              |---------------
 string       | varchar                               | String
 localeString | varchar                               | String
-text         | longtext(m), text(p,s)                | String
-localeText    | longtext(m), text(p,s)                | String
+text         | text(p,s)                | String
+localeText    | text(p,s)                | String
 int          | int                                   | Int
 float        | double precision                      | Float
-boolean      | tinyint (m), bool (p), boolean (s)    | Boolean
-datetime     | datetime (m,s), timestamp (p)         | DateTime
+boolean      | bool (p), boolean (s)    | Boolean
+datetime     | datetime (s), timestamp (p)         | DateTime
 relation     | many-to-one / many-to-many relation   | As specified in config
 
 Additionally, the CustomFieldType also dictates which [configuration options](/reference/typescript-api/custom-fields/#configuration-options)

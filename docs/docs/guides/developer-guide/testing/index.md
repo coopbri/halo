@@ -81,11 +81,10 @@ and a `tsconfig.e2e.json` tsconfig file for the tests:
 
 ### Register database-specific initializers
 
-The `@vendure/testing` package uses "initializers" to create the test databases and populate them with initial data. We ship with initializers for `sqljs`, `postgres` and `mysql`. Custom initializers can be created to support running e2e tests against other databases supported by TypeORM. See the [`TestDbInitializer` docs](/reference/typescript-api/testing/test-db-initializer/) for more details.
+The `@vendure/testing` package uses "initializers" to create the test databases and populate them with initial data. We ship with initializers for `sqljs` and `postgres`. Custom initializers can be created to support running e2e tests against other databases supported by TypeORM. See the [`TestDbInitializer` docs](/reference/typescript-api/testing/test-db-initializer/) for more details.
 
 ```ts title="src/plugins/my-plugin/e2e/my-plugin.e2e-spec.ts"
 import {
-    MysqlInitializer,
     PostgresInitializer,
     SqljsInitializer,
     registerInitializer,
@@ -95,7 +94,6 @@ const sqliteDataDir = path.join(__dirname, '__data__');
 
 registerInitializer('sqljs', new SqljsInitializer(sqliteDataDir));
 registerInitializer('postgres', new PostgresInitializer());
-registerInitializer('mysql', new MysqlInitializer());
 ```
 
 :::info

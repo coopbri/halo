@@ -13,11 +13,6 @@ import { Promotion } from './promotion.entity';
 export class PromotionTranslation extends VendureEntity implements Translation<Promotion>, HasCustomFields {
     constructor(input?: DeepPartial<Translation<Promotion>>) {
         super(input);
-        // This is a workaround for the fact that
-        // MySQL does not support default values on TEXT columns
-        if (this.description === undefined) {
-            this.description = '';
-        }
     }
 
     @Column('varchar') languageCode: LanguageCode;

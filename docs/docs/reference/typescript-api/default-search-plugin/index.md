@@ -21,8 +21,7 @@ plugin, then make sure this one is used, otherwise you will not be able to searc
 [`search` query](/reference/graphql-api/shop/queries#search).
 
 :::caution
-Note that the quality of the fulltext search capabilities varies depending on the underlying database being used. For example,
-the MySQL & Postgres implementations will typically yield better results than the SQLite implementation.
+Note that the quality of the fulltext search capabilities varies depending on the underlying database being used. For example Postgres implementation will typically yield better results than the SQLite implementation.
 :::
 
 *Example*

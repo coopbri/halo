@@ -7,12 +7,8 @@ This package is not published to npm. It is used in development of the Vendure s
 To run the server, run the `start` script. The database configuration can be specified by the `DB=<type>` environment variable:
 
 ```bash
-DB=mysql npm run start
-DB=postgres npm run start
-DB=sqlite npm run start
+npm run start
 ```
-
-The default if no db is specified is mysql.
 
 ### Populating data
 

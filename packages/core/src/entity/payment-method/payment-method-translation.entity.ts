@@ -16,11 +16,6 @@ export class PaymentMethodTranslation
 {
     constructor(input?: DeepPartial<Translation<PaymentMethod>>) {
         super(input);
-        // This is a workaround for the fact that
-        // MySQL does not support default values on TEXT columns
-        if (this.description === undefined) {
-            this.description = '';
-        }
     }
 
     @Column('varchar') languageCode: LanguageCode;

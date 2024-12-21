@@ -72,18 +72,7 @@ function registerCustomFieldsForEntity(
                         }
                         options.length = length;
                     }
-                    if (
-                        customField.type === 'float' &&
-                        typeof customField.defaultValue === 'number' &&
-                        (dbEngine === 'mariadb' || dbEngine === 'mysql')
-                    ) {
-                        // In the MySQL driver, a default float value will get rounded to the nearest integer.
-                        // unless you specify the precision.
-                        const defaultValueDecimalPlaces = customField.defaultValue.toString().split('.')[1];
-                        if (defaultValueDecimalPlaces) {
-                            options.scale = defaultValueDecimalPlaces.length;
-                        }
-                    }
+
                     if (
                         customField.type === 'datetime' &&
                         options.precision == null &&
@@ -95,13 +84,8 @@ function registerCustomFieldsForEntity(
                     ) {
                         options.precision = 6;
                     }
+
                     Column(options)(instance, name);
-                    if ((dbEngine === 'mysql' || dbEngine === 'mariadb') && customField.unique === true) {
-                        // The MySQL driver seems to work differently and will only apply a unique
-                        // constraint if an index is defined on the column. For postgres/sqlite it is
-                        // sufficient to add the `unique: true` property to the column options.
-                        Index({ unique: true })(instance, name);
-                    }
                 }
             };
 
@@ -145,7 +129,6 @@ function formatDefaultDatetime(dbEngine: DataSourceOptions['type'], datetime: an
         case 'sqlite':
         case 'sqljs':
             return DateUtils.mixedDateToUtcDatetimeString(datetime);
-        case 'mysql':
         case 'postgres':
         default:
             return DateUtils.mixedDateToUtcDatetimeString(datetime);
@@ -164,16 +147,11 @@ function getColumnType(
         case 'text':
         case 'localeText':
             switch (dbEngine) {
-                case 'mysql':
-                case 'mariadb':
-                    return 'longtext';
                 default:
                     return 'text';
             }
         case 'boolean':
             switch (dbEngine) {
-                case 'mysql':
-                    return 'tinyint';
                 case 'postgres':
                     return 'bool';
                 case 'sqlite':
@@ -189,8 +167,6 @@ function getColumnType(
             switch (dbEngine) {
                 case 'postgres':
                     return 'timestamp';
-                case 'mysql':
-                case 'sqlite':
                 case 'sqljs':
                 default:
                     return 'datetime';
@@ -204,14 +180,6 @@ function getColumnType(
 function getDefault(customField: CustomFieldConfig, dbEngine: DataSourceOptions['type']) {
     const { name, type, list, defaultValue, nullable } = customField;
     if (list && defaultValue) {
-        if (dbEngine === 'mysql') {
-            // MySQL does not support defaults on TEXT fields, which is what "simple-json" uses
-            // internally. See https://stackoverflow.com/q/3466872/772859
-            Logger.warn(
-                `MySQL does not support default values on list fields (${name}). No default will be set.`,
-            );
-            return undefined;
-        }
         return JSON.stringify(defaultValue);
     }
     return type === 'datetime' ? formatDefaultDatetime(dbEngine, defaultValue) : defaultValue;

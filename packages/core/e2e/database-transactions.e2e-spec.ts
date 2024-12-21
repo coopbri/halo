@@ -15,7 +15,7 @@ import {
     TRIGGER_NO_OPERATION,
 } from './fixtures/test-plugins/transaction-test-plugin';
 
-type DBType = 'mysql' | 'postgres' | 'sqlite' | 'sqljs';
+type DBType = 'postgres' | 'sqlite' | 'sqljs';
 
 const itIfDb = (dbs: DBType[]) => {
     return dbs.includes((process.env.DB as DBType) || 'sqljs') ? it : it.skip;
@@ -155,7 +155,7 @@ describe('Transaction infrastructure', () => {
         expect(!!verify.users.find((u: any) => u.identifier === 'test5')).toBe(false);
     });
 
-    itIfDb(['postgres', 'mysql'])(
+    itIfDb(['postgres'])(
         'failing mutation inside connection.withTransaction() wrapper with context and promise concurrent execution',
         async () => {
             try {

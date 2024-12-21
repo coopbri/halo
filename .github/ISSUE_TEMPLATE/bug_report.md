@@ -23,7 +23,6 @@ A clear and concise description of what you expected to happen.
 **Environment (please complete the following information):**
  - @vendure/core version:
  - Nodejs version
- - Database (mysql/postgres etc):
 
 **Additional context**
 Add any other context about the problem here.

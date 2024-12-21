@@ -34,7 +34,7 @@ export class TransactionWrapper {
         const ctx = originalCtx.copy();
 
         const entityManager: EntityManager | undefined = (ctx as any)[TRANSACTION_MANAGER_KEY];
-        const queryRunner = entityManager ?.queryRunner || connection.createQueryRunner();
+        const queryRunner = entityManager?.queryRunner || connection.createQueryRunner();
 
         if (mode === 'auto') {
             await this.startTransaction(queryRunner, isolationLevel);
@@ -67,8 +67,7 @@ export class TransactionWrapper {
             }
             throw error;
         } finally {
-            if (!queryRunner.isTransactionActive
-                && queryRunner.isReleased === false) {
+            if (!queryRunner.isTransactionActive && queryRunner.isReleased === false) {
                 // There is a check for an active transaction
                 // because this could be a nested transaction (savepoint).
 
@@ -81,7 +80,10 @@ export class TransactionWrapper {
      * Attempts to start a DB transaction, with retry logic in the case that a transaction
      * is already started for the connection (which is mainly a problem with SQLite/Sql.js)
      */
-    private async startTransaction(queryRunner: QueryRunner, isolationLevel: TransactionIsolationLevel | undefined) {
+    private async startTransaction(
+        queryRunner: QueryRunner,
+        isolationLevel: TransactionIsolationLevel | undefined,
+    ) {
         const maxRetries = 25;
         let attempts = 0;
         let lastError: any;
@@ -118,8 +120,7 @@ export class TransactionWrapper {
      * situation, which can usually be retried with success.
      */
     private isRetriableError(err: any): boolean {
-        const mysqlDeadlock = err.code === 'ER_LOCK_DEADLOCK';
         const postgresDeadlock = err.code === 'deadlock_detected';
-        return mysqlDeadlock || postgresDeadlock;
+        return postgresDeadlock;
     }
 }

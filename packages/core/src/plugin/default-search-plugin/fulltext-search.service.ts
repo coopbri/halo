@@ -16,7 +16,6 @@ import { SearchService } from '../../service/services/search.service';
 
 import { PLUGIN_INIT_OPTIONS } from './constants';
 import { SearchIndexService } from './indexer/search-index.service';
-import { MysqlSearchStrategy } from './search-strategy/mysql-search-strategy';
 import { PostgresSearchStrategy } from './search-strategy/postgres-search-strategy';
 import { SearchStrategy } from './search-strategy/search-strategy';
 import { SqliteSearchStrategy } from './search-strategy/sqlite-search-strategy';
@@ -115,11 +114,6 @@ export class FulltextSearchService {
             this._searchStrategy = this.options.searchStrategy;
         } else {
             switch (this.connection.rawConnection.options.type) {
-                case 'mysql':
-                case 'mariadb':
-                case 'aurora-mysql':
-                    this._searchStrategy = new MysqlSearchStrategy();
-                    break;
                 case 'sqlite':
                 case 'sqljs':
                 case 'better-sqlite3':

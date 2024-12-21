@@ -1933,18 +1933,6 @@ describe('Default search plugin', () => {
                 const result = await search('a : b ? * (c) ! "foo"');
                 expect(result.search.items).toBeDefined();
             });
-
-            it('correctly escapes mysql binary mode chars', async () => {
-                expect((await search('foo+')).search.items).toBeDefined();
-                expect((await search('foo-')).search.items).toBeDefined();
-                expect((await search('foo<')).search.items).toBeDefined();
-                expect((await search('foo>')).search.items).toBeDefined();
-                expect((await search('foo*')).search.items).toBeDefined();
-                expect((await search('foo~')).search.items).toBeDefined();
-                expect((await search('foo@bar')).search.items).toBeDefined();
-                expect((await search('foo + - *')).search.items).toBeDefined();
-                expect((await search('foo + - bar')).search.items).toBeDefined();
-            });
         });
     });
 });

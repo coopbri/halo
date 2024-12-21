@@ -46,28 +46,26 @@ Note that this can take a few minutes.
 
 The server requires an SQL database to be available. The simplest option is to use SQLite, but if you have Docker available you can use the [dev-server docker-compose file](./packages/dev-server/docker-compose.yml) which will start up both MariaDB and Postgres as well as their GUI management tools.
 
-Halo uses [TypeORM](http://typeorm.io), and officially supports **MySQL**, **PostgreSQL** and **SQLite**, though other TypeORM-supported databases may work.
+Halo uses [TypeORM](http://typeorm.io), and officially supports **PostgreSQL**.
 
 1. Configure the [dev config](./packages/dev-server/dev-config.ts), making sure the connection settings in the `getDbConfig()` function are correct for the database type you will be using.
 2. Create the database using your DB admin tool of choice (e.g. phpMyAdmin if you are using the docker image suggested above). Name it according to the `getDbConfig()` settings. If you are using SQLite, you can skip this step.
 3. Populate mock data: 
    ```bash
     cd packages/dev-server
-    DB=<mysql|postgres|sqlite> npm run populate
+    npm run populate
     ```
-   If you do not specify the `DB` variable, it will default to "mysql".
 
 ### 4. Run the dev server
 
 ```
 cd packages/dev-server
-DB=<mysql|postgres|sqlite> npm run start
+npm run start
 ```
 Or if you are in the root package 
 ```
-DB=<mysql|postgres|sqlite> npm run dev-server:start
+npm run dev-server:start
 ```
-If you do not specify the `DB` argument, it will default to "mysql".
 
 ### Testing admin ui changes locally
 

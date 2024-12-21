@@ -41,7 +41,7 @@ export interface DefaultSearchPluginInitOptions {
     /**
      * @description
      * Set a custom search strategy that implements {@link SearchStrategy} or extends an existing search strategy
-     * such as {@link MysqlSearchStrategy}, {@link PostgresSearchStrategy} or {@link SqliteSearchStrategy}.
+     * such as {@link PostgresSearchStrategy} or {@link SqliteSearchStrategy}.
      *
      * @example
      * ```ts

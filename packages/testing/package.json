@@ -47,11 +47,9 @@
     },
     "devDependencies": {
         "@types/faker": "^5.5.9",
-        "@types/mysql": "^2.15.26",
         "@types/node-fetch": "^2.6.4",
         "@types/pg": "^8.11.2",
         "@vendure/core": "^2.3.3",
-        "mysql": "^2.18.1",
         "pg": "^8.11.3",
         "rimraf": "^5.0.5",
         "typescript": "5.3.3"

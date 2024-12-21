@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
  
 * [Node.js](https://nodejs.org/en/) **v18** or above, with support for **even-numbered Node.js versions**.
 * The [supported TypeScript version](https://github.com/vendure-ecommerce/vendure/blob/master/packages/create/src/constants.ts#L7) is set upon installation. Upgrading to a newer version of TypeScript might result in compilation errors.
-* If you want to use MySQL, MariaDB, or Postgres as your data store, then you'll need an instance available locally. However, **if you are just testing out Vendure, we recommend using SQLite**, which has no external requirements.
+* If you want to use Postgres as your data store, then you'll need an instance available locally. However, **if you are just testing out Vendure, we recommend using SQLite**, which has no external requirements.
 * If you use **Yarn**, from Vendure v2.2.0+, you'll need to use **Yarn 2** (Berry) or above.
 
 ## @vendure/create
@@ -33,7 +33,7 @@ Vendure supports a number of different databases. The `@vendure/create` tool wil
 ![Vendure Create step 1](./create-1.webp)
 
 :::tip
-If you select MySQL, MariaDB or Postgres, you need to make sure you:
+If you select Postgres, you need to make sure you:
 
 1. have the database server running and accessible
 2. have created a database for Vendure to use

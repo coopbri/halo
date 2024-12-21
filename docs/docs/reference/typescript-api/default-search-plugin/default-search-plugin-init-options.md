@@ -49,7 +49,7 @@ the worker.
 <MemberInfo kind="property" type={`<a href='/reference/typescript-api/default-search-plugin/search-strategy#searchstrategy'>SearchStrategy</a>`} default={`undefined`}  since="1.6.0"  />
 
 Set a custom search strategy that implements <a href='/reference/typescript-api/default-search-plugin/search-strategy#searchstrategy'>SearchStrategy</a> or extends an existing search strategy
-such as <a href='/reference/typescript-api/default-search-plugin/mysql-search-strategy#mysqlsearchstrategy'>MysqlSearchStrategy</a>, <a href='/reference/typescript-api/default-search-plugin/postgres-search-strategy#postgressearchstrategy'>PostgresSearchStrategy</a> or <a href='/reference/typescript-api/default-search-plugin/sqlite-search-strategy#sqlitesearchstrategy'>SqliteSearchStrategy</a>.
+such as <a href='/reference/typescript-api/default-search-plugin/postgres-search-strategy#postgressearchstrategy'>PostgresSearchStrategy</a> or <a href='/reference/typescript-api/default-search-plugin/sqlite-search-strategy#sqlitesearchstrategy'>SqliteSearchStrategy</a>.
 
 *Example*
 

@@ -101,8 +101,6 @@ Run `npx vendure migrate` and select "Run pending migrations"
 :::caution
 TypeORM will attempt to run each migration inside a transaction. This means that if one of the migration commands fails, then the entire transaction will be rolled back to its original state.
 
-_However_ this is **not supported by MySQL / MariaDB**. This means that when using MySQL or MariaDB, errors in your migration script could leave your database in a broken or inconsistent state. Therefore it is **critical** that you first create a backup of your database before running a migration.
-
 You can read more about this issue in [typeorm/issues/7054](https://github.com/typeorm/typeorm/issues/7054)
 :::
 
@@ -192,4 +190,3 @@ These are the underlying function exposed by Vendure which are used to generate,
 
 The `revertLastMigration` function will revert the last applied migration by applying the `down()` method. If run again it will then revert the one before that, and so on.
 In doing so, it will also remove the corresponding row from the `migrations` table.
-

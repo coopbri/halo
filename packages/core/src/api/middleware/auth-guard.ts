@@ -111,9 +111,7 @@ export class AuthGuard implements CanActivate {
                             requestContext.channelId,
                         ]);
                     } catch (e: any) {
-                        const isDuplicateError =
-                            e.code === 'ER_DUP_ENTRY' /* mySQL/MariaDB */ ||
-                            e.code === '23505'; /* postgres */
+                        const isDuplicateError = e.code === '23505'; /* postgres */
                         if (isDuplicateError) {
                             // For a duplicate error, this means that concurrent requests have resulted in attempting to
                             // assign the Customer to the channel more than once. In this case we can safely ignore the
