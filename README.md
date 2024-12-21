@@ -1,32 +1,19 @@
 > [!WARNING]
 > This project was recently forked from Vendure v2 (MIT) due to Vendure switching to a copyleft license (GPLv3). Expect codebase turbulence and **do not** use this in production yet. Credit will be given to the original authors of this project.
 
-# Vendure
+# Halo
 
 An open-source headless commerce platform built on [Node.js](https://nodejs.org) with [GraphQL](https://graphql.org/), [Nest](https://nestjs.com/) & [TypeScript](http://www.typescriptlang.org/), with a focus on developer productivity and ease of customization.
-
-[![Build Status](https://github.com/vendure-ecommerce/vendure/workflows/Build%20&%20Test/badge.svg)](https://github.com/vendure-ecommerce/vendure/actions) 
-[![Publish & Install](https://github.com/vendure-ecommerce/vendure/workflows/Publish%20&%20Install/badge.svg)](https://github.com/vendure-ecommerce/vendure/actions/workflows/publish_and_install.yml)
-[![Lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
-
-![vendure-github-social-banner](https://github.com/vendure-ecommerce/vendure/assets/24294584/ada25fa3-185d-45ce-896d-bece3685a829)
-
-
-### [www.vendure.io](https://www.vendure.io/)
-
-* [Getting Started](https://docs.vendure.io/guides/getting-started/installation/): Get Vendure up and running locally in a matter of minutes with a single command
-* [Live Demo](https://demo.vendure.io/)
-* [Vendure Discord](https://www.vendure.io/community): Join us on Discord for support and answers to your questions
 
 ## Structure
 
 This project is a monorepo managed with [Lerna](https://github.com/lerna/lerna). Several npm packages are published from this repo, which can be found in the `packages/` directory.
 
 ```
-vendure/
+halo/
 ├── docs/           # Documentation source
 ├── e2e-common/     # Shared config for package e2e tests
-├── packages/       # Source for the Vendure server, admin-ui & plugin packages
+├── packages/       # Source for the Halo server, admin-ui & plugin packages
 ├── scripts/
     ├── changelog/  # Scripts used to generate the changelog based on the git history
     ├── codegen/    # Scripts used to generate TypeScript code from the GraphQL APIs
@@ -35,7 +22,7 @@ vendure/
 
 ## Development
 
-The following instructions are for those who want to develop the Vendure core framework or plugins (e.g. if you intend to make a pull request). For instructions on how to build a project *using* Vendure, please see the [Getting Started guide](https://docs.vendure.io/guides/getting-started/installation/).
+The following instructions are for those who want to develop the Halo core framework or plugins (e.g. if you intend to make a pull request).
 
 ### 1. Install top-level dependencies
 
@@ -59,7 +46,7 @@ Note that this can take a few minutes.
 
 The server requires an SQL database to be available. The simplest option is to use SQLite, but if you have Docker available you can use the [dev-server docker-compose file](./packages/dev-server/docker-compose.yml) which will start up both MariaDB and Postgres as well as their GUI management tools.
 
-Vendure uses [TypeORM](http://typeorm.io), and officially supports **MySQL**, **PostgreSQL** and **SQLite**, though other TypeORM-supported databases may work.
+Halo uses [TypeORM](http://typeorm.io), and officially supports **MySQL**, **PostgreSQL** and **SQLite**, though other TypeORM-supported databases may work.
 
 1. Configure the [dev config](./packages/dev-server/dev-config.ts), making sure the connection settings in the `getDbConfig()` function are correct for the database type you will be using.
 2. Create the database using your DB admin tool of choice (e.g. phpMyAdmin if you are using the docker image suggested above). Name it according to the `getDbConfig()` settings. If you are using SQLite, you can skip this step.
