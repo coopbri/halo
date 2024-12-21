@@ -33,7 +33,7 @@ which you will need to provide to the plugin.
 Install this plugin as well as the `@sentry/node` package:
 
 ```sh
-npm install --save @vendure/sentry-plugin @sentry/node
+bun install --save @vendure/sentry-plugin @sentry/node
 ```
 
 ## Configuration

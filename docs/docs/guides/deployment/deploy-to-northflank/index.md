@@ -465,7 +465,7 @@ This setup is suitable for testing purposes, but is not recommended for producti
               "instances": 1,
               "docker": {
                 "configType": "customCommand",
-                "customCommand": "yarn start:server"
+                "customCommand": "bun start:server"
               },
               "internal": {
                 "buildId": "${refs.build.id}",

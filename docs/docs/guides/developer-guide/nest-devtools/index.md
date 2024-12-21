@@ -14,7 +14,7 @@ Nest Devtools is a paid service. You can [sign up for a free trial](https://devt
 First you'll need to install the `@nestjs/devtools-integration` package:
 
 ```bash
-npm i @nestjs/devtools-integration
+bun i @nestjs/devtools-integration
 ```
 
 ## Configuration

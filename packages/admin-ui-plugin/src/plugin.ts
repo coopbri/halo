@@ -87,11 +87,11 @@ export interface AdminUiPluginOptions {
  *
  * ## Installation
  *
- * `yarn add \@vendure/admin-ui-plugin`
+ * `bun add \@vendure/admin-ui-plugin`
  *
  * or
  *
- * `npm install \@vendure/admin-ui-plugin`
+ * `bun install \@vendure/admin-ui-plugin`
  *
  * @example
  * ```ts

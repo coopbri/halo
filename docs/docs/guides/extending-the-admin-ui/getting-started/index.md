@@ -33,17 +33,17 @@ Admin UI extensions manually, follow these steps:
 First, install the [`@vendure/ui-devkit` package](https://www.npmjs.com/package/@vendure/ui-devkit) as a dev dependency:
 
 <Tabs>
-<TabItem value="npm" label="npm" default>
+<TabItem value="bun" label="bun" default>
 
 ```bash
-npm install --save-dev @vendure/ui-devkit
+bun install --save-dev @vendure/ui-devkit
 ```
 
 </TabItem>
-<TabItem value="yarn" label="yarn">
+<TabItem value="bun" label="bun">
 
 ```bash
-yarn add --dev @vendure/ui-devkit
+bun add --dev @vendure/ui-devkit
 ```
 
 </TabItem>
@@ -54,17 +54,17 @@ If you plan to use React components in your UI extensions, you should also insta
 
 
 <Tabs>
-<TabItem value="npm" label="npm" default>
+<TabItem value="bun" label="bun" default>
 
 ```bash
-npm install --save-dev @types/react
+bun install --save-dev @types/react
 ```
 
 </TabItem>
-<TabItem value="yarn" label="yarn">
+<TabItem value="bun" label="bun">
 
 ```bash
-yarn add --dev @types/react
+bun add --dev @types/react
 ```
 
 </TabItem>
@@ -320,17 +320,17 @@ compileUiExtensions({
 This can then be run from the command line:
 
 <Tabs>
-<TabItem value="npm" label="npm" default>
+<TabItem value="bun" label="bun" default>
 
 ```bash
-npm run ts-node compile-admin-ui.ts
+bun run ts-node compile-admin-ui.ts
 ```
 
 </TabItem>
-<TabItem value="yarn" label="yarn">
+<TabItem value="bun" label="bun">
 
 ```bash
-yarn ts-node compile-admin-ui.ts
+bun ts-node compile-admin-ui.ts
 ```
 
 </TabItem>
@@ -363,7 +363,7 @@ To compile the angular app ahead of time (for production) and copy the dist fold
 {
     "scripts": {
         "copy": "npx copyfiles -u 1 'src/__admin-ui/dist/**/*' dist",
-        "build": "tsc && yarn copy",
+        "build": "tsc && bun copy",
         "build:admin": "rimraf admin-ui && npx ts-node src/compile-admin-ui.ts"
     }
 }
@@ -373,17 +373,17 @@ To compile the angular app ahead of time (for production) and copy the dist fold
 Make sure to install copyfiles before running the "copy" command:
 
 <Tabs>
-<TabItem value="npm" label="npm" default>
+<TabItem value="bun" label="bun" default>
 
 ```bash
-npm install copyfiles
+bun install copyfiles
 ```
 
 </TabItem>
-<TabItem value="yarn" label="yarn">
+<TabItem value="bun" label="bun">
 
 ```bash
-yarn add copyfiles
+bun add copyfiles
 ```
 
 </TabItem>
@@ -618,4 +618,3 @@ the `registeRouteComponent()` function:
    </vdr-page-body>
    ```
 3. Remove any `NgModule` files, and replace lazy modules with `routes.ts`, and shared modules with `providers.ts` (see above).
-

@@ -30,11 +30,11 @@ You can also create your own handler and register them with the plugin - see the
 
 ## Installation
 
-`yarn add @vendure/email-plugin`
+`bun add @vendure/email-plugin`
 
 or
 
-`npm install @vendure/email-plugin`
+`bun install @vendure/email-plugin`
 
 *Example*
 

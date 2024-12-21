@@ -27,7 +27,7 @@ to the latest. All the Vendure packages have the same version, and are all relea
 }
 ```
 
-Then run `npm install` or `yarn install` depending on which package manager you prefer.
+Then run `bun install` or `bun install` depending on which package manager you prefer.
 
 ## Admin UI changes
 
@@ -83,4 +83,3 @@ If you are using a code-generation tool (such as [graphql-code-generator](https:
 If you are using Vendure providers (services, JobQueue, EventBus etc.) in your custom plugins, you should look out for breakages caused by changes to those services. Major changes will be listed in the changelog, but occasionally internal changes may also impact your code. 
 
 The best way to check whether this is the case is to build your entire project after upgrading, to see if any new TypeScript compiler errors emerge.
-

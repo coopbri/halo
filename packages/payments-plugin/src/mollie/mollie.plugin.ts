@@ -87,11 +87,11 @@ export interface MolliePluginOptions {
  * 1. You will need to create a Mollie account and get your apiKey in the dashboard.
  * 2. Install the Payments plugin and the Mollie client:
  *
- *     `yarn add \@vendure/payments-plugin \@mollie/api-client`
+ *     `bun add \@vendure/payments-plugin \@mollie/api-client`
  *
  *     or
  *
- *     `npm install \@vendure/payments-plugin \@mollie/api-client`
+ *     `bun install \@vendure/payments-plugin \@mollie/api-client`
  *
  * ## Setup
  *

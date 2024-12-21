@@ -26,7 +26,7 @@ The following instructions are for those who want to develop the Halo core frame
 
 ### 1. Install top-level dependencies
 
-`npm install`
+`bun install`
 
 The root directory has a `package.json` which contains build-related dependencies for tasks including:
 
@@ -36,7 +36,7 @@ The root directory has a `package.json` which contains build-related dependencie
 
 ### 2. Build all packages
 
-`npm run build`
+`bun run build`
 
 Packages must be built (i.e. TypeScript compiled, admin ui app built, certain assets copied etc.) before being used.
 
@@ -53,18 +53,18 @@ Halo uses [TypeORM](http://typeorm.io), and officially supports **PostgreSQL**.
 3. Populate mock data: 
    ```bash
     cd packages/dev-server
-    npm run populate
+    bun run populate
     ```
 
 ### 4. Run the dev server
 
 ```
 cd packages/dev-server
-npm run start
+bun run start
 ```
 Or if you are in the root package 
 ```
-npm run dev-server:start
+bun run dev-server:start
 ```
 
 ### Testing admin ui changes locally
@@ -72,7 +72,7 @@ npm run dev-server:start
 If you are making changes to the admin ui, you need to start the admin ui independent from the dev-server:
 
 1. `cd packages/admin-ui`
-2. `npm run start`
+2. `bun run start`
 3. Go to http://localhost:4200 and log in with "superadmin", "superadmin"
 
 This will auto restart when you make changes to the admin ui. You don't need this step when you just use the admin ui just
@@ -89,13 +89,13 @@ This example shows how to test changes to the `payments-plugin` package locally,
 ```shell
 # Terminal 1
 cd packages/payments-plugin
-npm run watch
+bun run watch
 ```
 :warning: If you are developing changes for the `core`package, you also need to watch the `common` package:
 ```shell
 # Terminal 1
 # Root of the project
-npm run watch:core-common
+bun run watch:core-common
 ```
 
 2. After the changes in your package are compiled you have to stop and restart the dev-server:
@@ -103,7 +103,7 @@ npm run watch:core-common
 ```shell
 # Terminal 2
 cd packages/dev-server
-DB=sqlite npm run start
+DB=sqlite bun run start
 ```
 
 3. The dev-server will now have your local changes from the changed package.
@@ -112,7 +112,7 @@ DB=sqlite npm run start
 
 [graphql-code-generator](https://github.com/dotansimha/graphql-code-generator) is used to automatically create TypeScript interfaces for all GraphQL server operations and admin ui queries. These generated interfaces are used in both the admin ui and the server.
 
-Running `npm run codegen` will generate the following files:
+Running `bun run codegen` will generate the following files:
 
 * [`packages/common/src/generated-types.ts`](./packages/common/src/generated-types.ts): Types, Inputs & resolver args relating to the Admin API
 * [`packages/common/src/generated-shop-types.ts`](./packages/common/src/generated-shop-types.ts): Types, Inputs & resolver args relating to the Shop API
@@ -124,15 +124,15 @@ Running `npm run codegen` will generate the following files:
 
 #### Server Unit Tests
 
-The core and several other packages have unit tests which are can be run all together by running `npm run test` from the root directory, or individually by running it from the package directory.
+The core and several other packages have unit tests which are can be run all together by running `bun run test` from the root directory, or individually by running it from the package directory.
 
 Unit tests are co-located with the files which they test, and have the suffix `.spec.ts`.
 
-If you're getting `Error: Bindings not found.`, please run `npm rebuild @swc/core`.
+If you're getting `Error: Bindings not found.`, please run `bun rebuild @swc/core`.
 
 #### End-to-end Tests
 
-Certain packages have e2e tests, which are located at `/packages/<name>/e2e/`. All e2e tests can be run by running `npm run e2e` from the root directory, or individually by running it from the package directory.
+Certain packages have e2e tests, which are located at `/packages/<name>/e2e/`. All e2e tests can be run by running `bun run e2e` from the root directory, or individually by running it from the package directory.
 
 e2e tests use the `@vendure/testing` package. For details of how the setup works, see the [Testing docs](https://docs.vendure.io/guides/developer-guide/testing/).
 
@@ -144,7 +144,7 @@ All packages in this repo are released at every version change (using [Lerna's f
 
 To make a release:
 
-##### 1. `npm run publish-release`
+##### 1. `bun run publish-release`
 
 It will run `lerna publish` which will prompt for which version to update to. Although we are using [conventional commits](https://www.conventionalcommits.org), the version is not automatically being calculated from the commit messages. Therefore the next version should be manually selected. 
 

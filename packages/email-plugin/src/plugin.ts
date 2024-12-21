@@ -52,11 +52,11 @@ import {
  *
  * ## Installation
  *
- * `yarn add \@vendure/email-plugin`
+ * `bun add \@vendure/email-plugin`
  *
  * or
  *
- * `npm install \@vendure/email-plugin`
+ * `bun install \@vendure/email-plugin`
  *
  * @example
  * ```ts

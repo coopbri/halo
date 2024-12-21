@@ -24,11 +24,11 @@ import { StripePluginOptions } from './types';
  * 3. Get the signing secret for the newly created webhook.
  * 4. Install the Payments plugin and the Stripe Node library:
  *
- *     `yarn add \@vendure/payments-plugin stripe`
+ *     `bun add \@vendure/payments-plugin stripe`
  *
  *     or
  *
- *     `npm install \@vendure/payments-plugin stripe`
+ *     `bun install \@vendure/payments-plugin stripe`
  *
  * ## Setup
  *
@@ -56,9 +56,9 @@ import { StripePluginOptions } from './types';
  * with:
  *
  * ```shell
- * yarn add \@stripe/stripe-js
+ * bun add \@stripe/stripe-js
  * # or
- * npm install \@stripe/stripe-js
+ * bun install \@stripe/stripe-js
  * ```
  *
  * If you are using React, you should also consider installing `@stripe/react-stripe-js`, which is a wrapper around Stripe Elements.

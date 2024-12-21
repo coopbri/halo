@@ -353,7 +353,7 @@ export type UiExtensionCompilerProcessArgument = string | [string, any];
  *
  * @docsCategory UiDevkit
  */
-export type UiExtensionBuildCommand = 'npm' | 'yarn' | 'pnpm';
+export type UiExtensionBuildCommand = 'bun';
 
 /**
  * @description
@@ -441,9 +441,7 @@ export interface UiExtensionCompilerOptions {
 
     /**
      * @description
-     * Internally, the Angular CLI will be invoked as an npm script. By default, the compiler will use Yarn
-     * to run the script if it is detected, otherwise it will use npm. This setting allows you to explicitly
-     * set which command to use, including pnpm, rather than relying on the default behavior.
+     * Internally, the Angular CLI will be invoked as an npm script.
      *
      * @since 1.5.0
      */

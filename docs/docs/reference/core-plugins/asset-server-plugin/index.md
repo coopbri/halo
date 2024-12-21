@@ -19,11 +19,11 @@ and caches the results for subsequent calls.
 
 ## Installation
 
-`yarn add @vendure/asset-server-plugin`
+`bun add @vendure/asset-server-plugin`
 
 or
 
-`npm install @vendure/asset-server-plugin`
+`bun install @vendure/asset-server-plugin`
 
 *Example*
 

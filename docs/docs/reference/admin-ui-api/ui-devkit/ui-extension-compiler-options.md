@@ -104,9 +104,6 @@ of `4200`.
 
 <MemberInfo kind="property" type={`<a href='/reference/admin-ui-api/ui-devkit/ui-extension-build-command#uiextensionbuildcommand'>UiExtensionBuildCommand</a>`}  since="1.5.0"  />
 
-Internally, the Angular CLI will be invoked as an npm script. By default, the compiler will use Yarn
-to run the script if it is detected, otherwise it will use npm. This setting allows you to explicitly
-set which command to use, including pnpm, rather than relying on the default behavior.
 ### additionalProcessArguments
 
 <MemberInfo kind="property" type={`<a href='/reference/admin-ui-api/ui-devkit/ui-extension-compiler-process-argument#uiextensioncompilerprocessargument'>UiExtensionCompilerProcessArgument</a>[]`} default={`undefined`}  since="1.5.0"  />

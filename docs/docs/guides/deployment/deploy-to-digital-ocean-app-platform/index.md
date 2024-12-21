@@ -63,7 +63,7 @@ Spaces service, which is an S3-compatible object storage service. This means you
 following packages installed:
 
 ```
-npm install @aws-sdk/client-s3 @aws-sdk/lib-storage
+bun install @aws-sdk/client-s3 @aws-sdk/lib-storage
 ```
 
 

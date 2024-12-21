@@ -16,5 +16,5 @@ import MemberDescription from '@site/src/components/MemberDescription';
 The package manager to use when invoking the Angular CLI to build UI extensions.
 
 ```ts title="Signature"
-type UiExtensionBuildCommand = 'npm' | 'yarn' | 'pnpm'
+type UiExtensionBuildCommand = 'bun'
 ```

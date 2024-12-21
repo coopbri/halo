@@ -29,6 +29,5 @@ However, for debugging purposes, it can make it hard to figure out why tests fai
 You can enable default logging behaviour with the environment variable `LOG`:
 
 ```
-LOG=true yarn e2e
+LOG=true bun e2e
 ```
-

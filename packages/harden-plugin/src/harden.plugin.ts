@@ -18,11 +18,11 @@ import { HardenPluginOptions } from './types';
  *
  * ## Installation
  *
- * `yarn add \@vendure/harden-plugin`
+ * `bun add \@vendure/harden-plugin`
  *
  * or
  *
- * `npm install \@vendure/harden-plugin`
+ * `bun install \@vendure/harden-plugin`
  *
  * Then add the `HardenPlugin`, calling the `.init()` method with {@link HardenPluginOptions}:
  *

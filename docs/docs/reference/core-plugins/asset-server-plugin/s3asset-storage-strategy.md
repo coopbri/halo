@@ -20,7 +20,7 @@ See their [getting started guide](https://aws.amazon.com/s3/getting-started/) fo
 Before using this strategy, make sure you have the `@aws-sdk/client-s3` and `@aws-sdk/lib-storage` package installed:
 
 ```sh
-npm install @aws-sdk/client-s3 @aws-sdk/lib-storage
+bun install @aws-sdk/client-s3 @aws-sdk/lib-storage
 ```
 
 **Note:** Rather than instantiating this manually, use the <a href='/reference/core-plugins/asset-server-plugin/s3asset-storage-strategy#configures3assetstorage'>configureS3AssetStorage</a> function.
@@ -157,7 +157,7 @@ Returns a configured instance of the <a href='/reference/core-plugins/asset-serv
 Before using this strategy, make sure you have the `@aws-sdk/client-s3` and `@aws-sdk/lib-storage` package installed:
 
 ```sh
-npm install @aws-sdk/client-s3 @aws-sdk/lib-storage
+bun install @aws-sdk/client-s3 @aws-sdk/lib-storage
 ```
 
 *Example*
@@ -227,4 +227,3 @@ Parameters
 ### s3Config
 
 <MemberInfo kind="parameter" type={`<a href='/reference/core-plugins/asset-server-plugin/s3asset-storage-strategy#s3config'>S3Config</a>`} />
-

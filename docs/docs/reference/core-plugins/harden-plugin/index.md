@@ -24,11 +24,11 @@ It is a recommended plugin for all production configurations.
 
 ## Installation
 
-`yarn add @vendure/harden-plugin`
+`bun add @vendure/harden-plugin`
 
 or
 
-`npm install @vendure/harden-plugin`
+`bun install @vendure/harden-plugin`
 
 Then add the `HardenPlugin`, calling the `.init()` method with <a href='/reference/core-plugins/harden-plugin/harden-plugin-options#hardenpluginoptions'>HardenPluginOptions</a>:
 

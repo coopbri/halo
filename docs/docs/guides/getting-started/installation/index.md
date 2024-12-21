@@ -11,7 +11,6 @@ import TabItem from '@theme/TabItem';
 * [Node.js](https://nodejs.org/en/) **v18** or above, with support for **even-numbered Node.js versions**.
 * The [supported TypeScript version](https://github.com/vendure-ecommerce/vendure/blob/master/packages/create/src/constants.ts#L7) is set upon installation. Upgrading to a newer version of TypeScript might result in compilation errors.
 * If you want to use Postgres as your data store, then you'll need an instance available locally. However, **if you are just testing out Vendure, we recommend using SQLite**, which has no external requirements.
-* If you use **Yarn**, from Vendure v2.2.0+, you'll need to use **Yarn 2** (Berry) or above.
 
 ## @vendure/create
 
@@ -66,9 +65,9 @@ Follow the instructions to move into the new directory created for your project,
 ```bash
 cd my-shop
 
-yarn dev
+bun dev
 # or
-npm run dev
+bun run dev
 ```
 
 You should now be able to access:

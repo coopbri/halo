@@ -58,7 +58,7 @@ This example is for Vercel, and assumes:
 
 * A `BASE_HREF` environment variable to be set to `/`
 * A public (output) directory set to `build/dist`
-* A build command set to `npm run build` or `yarn build`
+* A build command set to `bun run build`
 * A package.json like this:
     ```json title="package.json"
     {

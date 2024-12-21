@@ -124,7 +124,7 @@ In the next step you will configure the server:
 - **Branch**: Select the branch you want to deploy, usually "main" or "master"
 - **Runtime**: If you have a Dockerfile then it should be auto-detected. If not you should select "Node" and enter the appropriate build and start commands. For a
 typical Vendure project these would be:
-  - **Build Command**: `yarn; yarn build` or `npm install; npm run build`
+  - **Build Command**: `bun; bun build` or `bun install; bun run build`
   - **Start Command**: `node ./dist/index.js`
 - **Instance Type**: Select the appropriate instance type. Since we want to use a persistent volume to store our assets, we need to
 use at least the "Starter" instance type or higher.
@@ -185,7 +185,7 @@ Select the same git repo as before, and in the next step configure the worker:
 - **Branch**: Select the branch you want to deploy, usually "main" or "master"
 - **Runtime**: If you have a Dockerfile then it should be auto-detected. If not you should select "Node" and enter the appropriate build and start commands. For a
   typical Vendure project these would be:
-  - **Build Command**: `yarn; yarn build` or `npm install; npm run build`
+  - **Build Command**: `bun; bun build` or `bun install; bun run build`
   - **Start Command**: `node ./dist/index-worker.js`
 - **Instance Type**: Select the appropriate instance type. The Starter size is fine to get started.
 
@@ -218,4 +218,3 @@ want to consider the following:
   server and worker instances.
   - [Render Redis docs](https://docs.render.com/redis#creating-a-redis-instance)
   - [Vendure horizontal scaling docs](/guides/deployment/horizontal-scaling)
-  

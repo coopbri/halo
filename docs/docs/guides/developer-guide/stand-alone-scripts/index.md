@@ -61,7 +61,7 @@ npx ts-node src/get-product-count.ts
 
 # or
 
-yarn ts-node src/get-product-count.ts
+bun ts-node src/get-product-count.ts
 ```
 
 resulting in the following output:

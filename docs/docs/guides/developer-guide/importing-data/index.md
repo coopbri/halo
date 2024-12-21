@@ -230,7 +230,7 @@ When installing with @vendure/create, you have the option of populating test dat
 
 This guide illustrates how to populate that test data again on an existing Vendure installation, without needing to re-install from scratch.
 
-1. `npm install --save-dev @vendure/create`. This installs the "create" package, which contains the test data we will need.
+1. `bun install --save-dev @vendure/create`. This installs the "create" package, which contains the test data we will need.
 2. drop all tables from your database, but leave the actual database there.
 3. create a script that looks like this:
 

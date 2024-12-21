@@ -20,11 +20,11 @@ store administrators on a day-to-day basis for the management of the store.
 
 ## Installation
 
-`yarn add @vendure/admin-ui-plugin`
+`bun add @vendure/admin-ui-plugin`
 
 or
 
-`npm install @vendure/admin-ui-plugin`
+`bun install @vendure/admin-ui-plugin`
 
 *Example*
 

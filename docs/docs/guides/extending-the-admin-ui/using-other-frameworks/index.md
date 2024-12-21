@@ -18,11 +18,11 @@ There is still a small amount of Angular "glue code" needed to let the compiler 
 To create UI extensions, you'll need to install the `@vendure/ui-devkit` package. This package contains a compiler for building your customized version of the Admin UI, as well as the Angular dependencies you'll need to create your extensions.
 
 ```bash
-yarn add @vendure/ui-devkit
+bun add @vendure/ui-devkit
 
 # or
 
-npm install @vendure/ui-devkit
+bun install @vendure/ui-devkit
 ```
 
 ## 2. Create the folder structure
@@ -105,7 +105,7 @@ export const config: VendureConfig = {
 
 ## 5. Build your extension
 
-To ensure things are working we can now build our Vue app by running `yarn build` in the `vue-app` directory. This will build and output the app artifacts to the `vue-app/build` directory - the one we pointed to in the `staticAssets` array above.
+To ensure things are working we can now build our Vue app by running `bun build` in the `vue-app` directory. This will build and output the app artifacts to the `vue-app/build` directory - the one we pointed to in the `staticAssets` array above.
 
 Once build, we can start the Vendure server.
 

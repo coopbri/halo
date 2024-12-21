@@ -19,12 +19,12 @@ Follow the installation instructions in the [GraphQL Code Generator Quick Start]
 Namely:
 
 ```bash
-npm i graphql
-npm i -D typescript @graphql-codegen/cli
+bun i graphql
+bun i -D typescript @graphql-codegen/cli
 
 npx graphql-code-generator init
 
-npm install
+bun install
 ```
 
 During the `init` step, you'll be prompted to select various options about how to configure the code generation.
@@ -78,7 +78,7 @@ Ensure you have the Vendure server running before running the codegen script.
 :::
 
 ```bash
-npm run codegen
+bun run codegen
 ```
 
 This will generate a `src/gql` directory containing the TypeScript types for your GraphQL operations.

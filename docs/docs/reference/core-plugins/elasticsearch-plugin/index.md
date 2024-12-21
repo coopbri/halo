@@ -24,11 +24,11 @@ advanced Elasticsearch features like spacial search.
 Elasticsearch version 7.10.2 will throw error due to incompatibility with elasticsearch-js client.
 [Check here for more info](https://github.com/elastic/elasticsearch-js/issues/1519).
 
-`yarn add @elastic/elasticsearch @vendure/elasticsearch-plugin`
+`bun add @elastic/elasticsearch @vendure/elasticsearch-plugin`
 
 or
 
-`npm install @elastic/elasticsearch @vendure/elasticsearch-plugin`
+`bun install @elastic/elasticsearch @vendure/elasticsearch-plugin`
 
 Make sure to remove the `DefaultSearchPlugin` if it is still in the VendureConfig plugins array.
 

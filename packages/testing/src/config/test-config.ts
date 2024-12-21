@@ -34,7 +34,7 @@ const logger = process.env.LOG ? new DefaultLogger() : new NoopLogger();
  * You can enable default logging behaviour with the environment variable `LOG`:
  *
  * ```
- * LOG=true yarn e2e
+ * LOG=true bun e2e
  * ```
  *
  * @docsCategory testing

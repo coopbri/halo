@@ -482,7 +482,7 @@ export const shopApiExtensions = gql`
 
 :::note
 
-The `graphql-tag` package is a dependency of the Vendure core package. Depending on the package manager you are using, you may need to install it separately with `yarn add graphql-tag` or `npm install graphql-tag`.
+The `graphql-tag` package is a dependency of the Vendure core package. Depending on the package manager you are using, you may need to install it separately with `bun add graphql-tag`.
 
 :::
 
@@ -628,13 +628,13 @@ export const config: VendureConfig = {
 Now that the plugin is installed, we can test it out. Since we have defined a custom field, we'll need to generate and run a migration to add the new column to the database:
 
 ```bash
-npm run migration:generate wishlist-plugin
+bun run migration:generate wishlist-plugin
 ```
 
 Then start the server:
 
 ```bash
-npm run dev
+bun run dev
 ```
 
 Once the server is running, we should be able to log in as an existing Customer, and then add a product to the wishlist:
@@ -781,4 +781,3 @@ mutation RemoveFromWishlist {
 
   </TabItem>
 </Tabs>
-

@@ -23,18 +23,6 @@ export const logger = {
 };
 
 /**
- * Checks for the global yarn binary to determine whether to use yarn or npm.
- */
-export function determinePackageManager(): 'yarn' | 'npm' {
-    try {
-        execSync('yarnpkg --version', { stdio: 'ignore' });
-        return 'yarn';
-    } catch (e: any) {
-        return 'npm';
-    }
-}
-
-/**
  * Returns the string path of a static asset
  */
 export function getStaticAssetPath(staticAssetDef: StaticAssetDefinition): string {

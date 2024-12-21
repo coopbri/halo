@@ -18,7 +18,6 @@ import {
 import {
     copyStaticAsset,
     copyUiDevkit,
-    determinePackageManager,
     getStaticAssetPath,
     isAdminUiExtension,
     isGlobalStylesExtension,
@@ -37,10 +36,7 @@ export function compileUiExtensions(
     options: UiExtensionCompilerOptions,
 ): AdminUiAppConfig | AdminUiAppDevModeConfig {
     const { devMode, watchPort } = options;
-    const command: UiExtensionBuildCommand =
-        options.command && ['npm', 'pnpm'].includes(options.command)
-            ? options.command
-            : determinePackageManager();
+    const command: UiExtensionBuildCommand = 'bun';
     if (devMode) {
         return runWatchMode({
             watchPort: watchPort || 4200,
@@ -75,12 +71,8 @@ function runCompileMode({
             if (ngCompilerPath) {
                 cmd = 'node';
                 commandArgs = [ngCompilerPath, 'build', '--configuration production'];
-            } else {
-                if (cmd === 'npm') {
-                    // npm requires `--` before any command line args being passed to a script
-                    commandArgs.splice(2, 0, '--');
-                }
             }
+
             console.log(`Running ${cmd} ${commandArgs.join(' ')}`);
             const buildProcess = spawn(
                 cmd,

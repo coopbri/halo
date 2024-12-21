@@ -25,11 +25,11 @@ the Stripe CLI to test your webhook locally. See the _local development_ section
 3. Get the signing secret for the newly created webhook.
 4. Install the Payments plugin and the Stripe Node library:
 
-    `yarn add @vendure/payments-plugin stripe`
+    `bun add @vendure/payments-plugin stripe`
 
     or
 
-    `npm install @vendure/payments-plugin stripe`
+    `bun install @vendure/payments-plugin stripe`
 
 ## Setup
 
@@ -57,9 +57,9 @@ In this flow, Stripe provides libraries which handle the payment UI and confirma
 with:
 
 ```shell
-yarn add @stripe/stripe-js
+bun add @stripe/stripe-js
 # or
-npm install @stripe/stripe-js
+bun install @stripe/stripe-js
 ```
 
 If you are using React, you should also consider installing `@stripe/react-stripe-js`, which is a wrapper around Stripe Elements.
@@ -219,7 +219,11 @@ to be used with the same PaymentIntent. This is done by adding a custom field to
 the Stripe customer ID, so switching this on will require a database migration / synchronization.
 ### metadata
 
-<MemberInfo kind="property" type={`(         injector: <a href='/reference/typescript-api/common/injector#injector'>Injector</a>,         ctx: <a href='/reference/typescript-api/request/request-context#requestcontext'>RequestContext</a>,         order: <a href='/reference/typescript-api/entities/order#order'>Order</a>,     ) =&#62; Stripe.MetadataParam | Promise&#60;Stripe.MetadataParam&#62;`}  since="1.9.7"  />
+<MemberInfo kind="property" type={`(
+         injector: <a href='/reference/typescript-api/common/injector#injector'>Injector</a>,
+         ctx: <a href='/reference/typescript-api/request/request-context#requestcontext'>RequestContext</a>,
+         order: <a href='/reference/typescript-api/entities/order#order'>Order</a>,
+     ) =&#62; Stripe.MetadataParam | Promise&#60;Stripe.MetadataParam&#62;`}  since="1.9.7"  />
 
 Attach extra metadata to Stripe payment intent creation call.
 
@@ -249,7 +253,11 @@ Note: If the `paymentIntentCreateParams` is also used and returns a `metadata` k
 returned by both functions will be merged.
 ### paymentIntentCreateParams
 
-<MemberInfo kind="property" type={`(         injector: <a href='/reference/typescript-api/common/injector#injector'>Injector</a>,         ctx: <a href='/reference/typescript-api/request/request-context#requestcontext'>RequestContext</a>,         order: <a href='/reference/typescript-api/entities/order#order'>Order</a>,     ) =&#62; AdditionalPaymentIntentCreateParams | Promise&#60;AdditionalPaymentIntentCreateParams&#62;`}  since="2.1.0"  />
+<MemberInfo kind="property" type={`(
+         injector: <a href='/reference/typescript-api/common/injector#injector'>Injector</a>,
+         ctx: <a href='/reference/typescript-api/request/request-context#requestcontext'>RequestContext</a>,
+         order: <a href='/reference/typescript-api/entities/order#order'>Order</a>,
+     ) =&#62; AdditionalPaymentIntentCreateParams | Promise&#60;AdditionalPaymentIntentCreateParams&#62;`}  since="2.1.0"  />
 
 Provide additional parameters to the Stripe payment intent creation. By default,
 the plugin will already pass the `amount`, `currency`, `customer` and `automatic_payment_methods: { enabled: true }` parameters.
@@ -277,7 +285,11 @@ export const config: VendureConfig = {
 ```
 ### customerCreateParams
 
-<MemberInfo kind="property" type={`(         injector: <a href='/reference/typescript-api/common/injector#injector'>Injector</a>,         ctx: <a href='/reference/typescript-api/request/request-context#requestcontext'>RequestContext</a>,         order: <a href='/reference/typescript-api/entities/order#order'>Order</a>,     ) =&#62; AdditionalCustomerCreateParams | Promise&#60;AdditionalCustomerCreateParams&#62;`}  since="2.1.0"  />
+<MemberInfo kind="property" type={`(
+         injector: <a href='/reference/typescript-api/common/injector#injector'>Injector</a>,
+         ctx: <a href='/reference/typescript-api/request/request-context#requestcontext'>RequestContext</a>,
+         order: <a href='/reference/typescript-api/entities/order#order'>Order</a>,
+     ) =&#62; AdditionalCustomerCreateParams | Promise&#60;AdditionalCustomerCreateParams&#62;`}  since="2.1.0"  />
 
 Provide additional parameters to the Stripe customer creation. By default,
 the plugin will already pass the `email` and `name` parameters.

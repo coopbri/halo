@@ -51,7 +51,7 @@ For a more complete guide, see the [Using Docker guide](/guides/deployment/using
 PM2 must be installed on your server:
 
 ```sh
-npm install pm2@latest -g
+bun install pm2@latest -g
 ```
 
 Your processes can then be run in [cluster mode](https://pm2.keymetrics.io/docs/usage/cluster-mode/) with the following command:
@@ -66,7 +66,7 @@ Note that if you are using pm2 inside a Docker container, you should use the `pm
 
 ```dockerfile
 # ... your existing Dockerfile config
-RUN npm install pm2 -g
+RUN bun install pm2 -g
 
 CMD ["pm2-runtime", "app.js", "-i", "max"]
 ```

@@ -54,7 +54,7 @@ export interface S3Config {
  * Before using this strategy, make sure you have the `@aws-sdk/client-s3` and `@aws-sdk/lib-storage` package installed:
  *
  * ```sh
- * npm install \@aws-sdk/client-s3 \@aws-sdk/lib-storage
+ * bun install \@aws-sdk/client-s3 \@aws-sdk/lib-storage
  * ```
  *
  * @example
@@ -139,7 +139,7 @@ export function configureS3AssetStorage(s3Config: S3Config) {
  * Before using this strategy, make sure you have the `@aws-sdk/client-s3` and `@aws-sdk/lib-storage` package installed:
  *
  * ```sh
- * npm install \@aws-sdk/client-s3 \@aws-sdk/lib-storage
+ * bun install \@aws-sdk/client-s3 \@aws-sdk/lib-storage
  * ```
  *
  * **Note:** Rather than instantiating this manually, use the {@link configureS3AssetStorage} function.

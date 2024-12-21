@@ -16,9 +16,9 @@ WORKDIR /usr/src/app
 
 COPY package.json ./
 COPY package-lock.json ./ 
-RUN npm install --production
+RUN bun install --production
 COPY . .
-RUN npm run build
+RUN bun run build
 ```
 
 This Dockerfile can then be built into an "image" using:
@@ -31,10 +31,10 @@ This same image can be used to run both the Vendure server and the worker:
 
 ```sh
 # Run the server
-docker run -dp 3000:3000 --name vendure-server vendure npm run start:server
+docker run -dp 3000:3000 --name vendure-server vendure bun run start:server
 
 # Run the worker
-docker run -dp 3000:3000 --name vendure-worker vendure npm run start:worker
+docker run -dp 3000:3000 --name vendure-worker vendure bun run start:worker
 ```
 
 Here is a breakdown of the command used above:
@@ -43,7 +43,7 @@ Here is a breakdown of the command used above:
 - `-dp 3000:3000` - the `-d` flag means to run in "detached" mode, so it runs in the background and does not take control of your terminal. `-p 3000:3000` means to expose port 3000 of the container (which is what Vendure listens on by default) as port 3000 on your host machine.
 - `--name vendure-server` - we give the container a human-readable name.
 - `vendure` - we are referencing the tag we set up during the build.
-- `npm run start:server` - this last part is the actual command that should be run inside the container.
+- `bun run start:server` - this last part is the actual command that should be run inside the container.
 
 ## Docker Compose
 
@@ -59,7 +59,7 @@ services:
       dockerfile: Dockerfile
     ports:
       - 3000:3000
-    command: ["npm", "run", "start:server"]
+    command: ["bun", "run", "start:server"]
     volumes:
       - /usr/src/app
     environment:
@@ -72,7 +72,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command: ["npm", "run", "start:worker"]
+    command: ["bun", "run", "start:worker"]
     volumes:
       - /usr/src/app
     environment:

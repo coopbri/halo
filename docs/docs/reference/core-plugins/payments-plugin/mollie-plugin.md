@@ -21,11 +21,11 @@ This plugin uses the Order API from Mollie, not the Payments API.
 1. You will need to create a Mollie account and get your apiKey in the dashboard.
 2. Install the Payments plugin and the Mollie client:
 
-    `yarn add @vendure/payments-plugin @mollie/api-client`
+    `bun add @vendure/payments-plugin @mollie/api-client`
 
     or
 
-    `npm install @vendure/payments-plugin @mollie/api-client`
+    `bun install @vendure/payments-plugin @mollie/api-client`
 
 ## Setup
 
@@ -170,7 +170,11 @@ The host of your Vendure server, e.g. `'https://my-vendure.io'`.
 This is used by Mollie to send webhook events to the Vendure server
 ### enabledPaymentMethodsParams
 
-<MemberInfo kind="property" type={`(         injector: <a href='/reference/typescript-api/common/injector#injector'>Injector</a>,         ctx: <a href='/reference/typescript-api/request/request-context#requestcontext'>RequestContext</a>,         order: <a href='/reference/typescript-api/entities/order#order'>Order</a> | null,     ) =&#62; AdditionalEnabledPaymentMethodsParams | Promise&#60;AdditionalEnabledPaymentMethodsParams&#62;`}  since="2.2.0"  />
+<MemberInfo kind="property" type={`(
+         injector: <a href='/reference/typescript-api/common/injector#injector'>Injector</a>,
+         ctx: <a href='/reference/typescript-api/request/request-context#requestcontext'>RequestContext</a>,
+         order: <a href='/reference/typescript-api/entities/order#order'>Order</a> | null,
+     ) =&#62; AdditionalEnabledPaymentMethodsParams | Promise&#60;AdditionalEnabledPaymentMethodsParams&#62;`}  since="2.2.0"  />
 
 Provide additional parameters to the Mollie enabled payment methods API call. By default,
 the plugin will already pass the `resource` parameter.

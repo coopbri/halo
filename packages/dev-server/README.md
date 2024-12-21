@@ -7,7 +7,7 @@ This package is not published to npm. It is used in development of the Vendure s
 To run the server, run the `start` script. The database configuration can be specified by the `DB=<type>` environment variable:
 
 ```bash
-npm run start
+bun run start
 ```
 
 ### Populating data
@@ -17,7 +17,7 @@ Test data can be populated by running the `populate` script. This uses the same 
 Specify the database as above to populate that database:
 
 ```bash
-DB=sqlite npm run populate
+DB=sqlite bun run populate
 ```
 
 ## Testing custom ui extension compilation
@@ -53,7 +53,7 @@ The npm scripts `load-test:1k`, `load-test:10k` and `load-test:100k` will popula
 An individual test script may be by specifying the script name as an argument:
 
 ```
-npm run load-test:1k deep-query.js
+bun run load-test:1k deep-query.js
 ```
 
 ## pg_stat_statements

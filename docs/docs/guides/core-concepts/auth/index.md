@@ -473,7 +473,7 @@ export const config: VendureConfig = {
 First we will need to be making an HTTP call to our Keycloak server to validate the token and get the user's details. We'll use the [`node-fetch`](https://www.npmjs.com/package/node-fetch) library to make the HTTP call:
 
 ```bash
-npm install node-fetch
+bun install node-fetch
 ```
 
 The strategy is very similar to the Google authentication example (they both use the OpenID Connect standard), so we'll not duplicate the explanatory comments here:

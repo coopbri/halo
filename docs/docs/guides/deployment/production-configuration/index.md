@@ -50,11 +50,11 @@ It is recommended that you install and configure the [HardenPlugin](/reference/c
 Install the plugin: 
 
 ```sh
-npm install @vendure/harden-plugin
+bun install @vendure/harden-plugin
 
 # or
 
-yarn add @vendure/harden-plugin
+bun add @vendure/harden-plugin
 ```
 
 Then add it to your VendureConfig:

@@ -30,7 +30,7 @@
         "build": "tsc -p ./tsconfig.build.json",
         "watch": "tsc -p ./tsconfig.build.json -w",
         "lint": "eslint --fix .",
-        "ci": "npm run build"
+        "ci": "bun run build"
     },
     "bugs": {
         "url": "https://github.com/vendure-ecommerce/vendure/issues"

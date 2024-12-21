@@ -24,7 +24,7 @@ If you prefer to set it up manually, follow the steps below.
 First, install the required dependencies:
 
 ```bash
-npm install -D @graphql-codegen/cli @graphql-codegen/typescript
+bun install -D @graphql-codegen/cli @graphql-codegen/typescript
 ```
 
 ## Configuration
@@ -74,7 +74,7 @@ You can now add a script to your package.json to run codegen:
 **Ensure your server is running**, then run the codegen script:
 
 ```bash
-npm run codegen
+bun run codegen
 ```
 
 This will generate a file at `src/plugins/organization/gql/generated.ts` which contains all the GraphQL types corresponding to your schema.
@@ -154,7 +154,7 @@ When you create Admin UI extensions, very often those UI components will be maki
 To do this, we will use the ["client preset" plugin](https://the-guild.dev/graphql/codegen/plugins/presets/preset-client). Assuming you have already completed the setup above, you'll need to install the following additional dependency:
 
 ```bash
-npm install -D @graphql-codegen/client-preset
+bun install -D @graphql-codegen/client-preset
 ```
 
 Then add the following to your `codegen.ts` file:

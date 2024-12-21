@@ -35,11 +35,11 @@ async function getFileType(buffer: Buffer) {
  *
  * ## Installation
  *
- * `yarn add \@vendure/asset-server-plugin`
+ * `bun add \@vendure/asset-server-plugin`
  *
  * or
  *
- * `npm install \@vendure/asset-server-plugin`
+ * `bun install \@vendure/asset-server-plugin`
  *
  * @example
  * ```ts
