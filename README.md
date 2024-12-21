@@ -15,7 +15,6 @@ halo/
 ├── e2e-common/     # Shared config for package e2e tests
 ├── packages/       # Source for the Halo server, admin-ui & plugin packages
 ├── scripts/
-    ├── changelog/  # Scripts used to generate the changelog based on the git history
     ├── codegen/    # Scripts used to generate TypeScript code from the GraphQL APIs
     ├── docs/       # Scripts used to generate documentation markdown from the source
 ```
@@ -149,8 +148,6 @@ To make a release:
 It will run `lerna publish` which will prompt for which version to update to. Although we are using [conventional commits](https://www.conventionalcommits.org), the version is not automatically being calculated from the commit messages. Therefore the next version should be manually selected. 
 
 Next it will build all packages to ensure the distributed files are up to date.
-
-Finally the command will create changelog entries for this release.
 
 ##### 2. `git push origin master --follow-tags`
 

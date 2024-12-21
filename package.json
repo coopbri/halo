@@ -10,7 +10,7 @@
         "docs:generate-graphql-docs": "ts-node scripts/docs/generate-graphql-docs.ts --api=shop && ts-node scripts/docs/generate-graphql-docs.ts --api=admin",
         "docs:build": "bun run docs:generate-typescript-docs && bun run docs:generate-graphql-docs",
         "codegen": "tsc -p scripts/codegen/plugins && ts-node scripts/codegen/generate-graphql-types.ts",
-        "version": "bun run check-imports && bun run check-angular-versions && bun run build && bun run check-core-type-defs && bun run generate-changelog && git add CHANGELOG* && git add */version.ts",
+        "version": "bun run check-imports && bun run check-angular-versions && bun run build && bun run check-core-type-defs && git add */version.ts",
         "dev-server:start": "cd packages/dev-server && bun run start",
         "test": "lerna run test --stream --no-bail",
         "e2e": "lerna run e2e --stream --no-bail",
@@ -18,7 +18,6 @@
         "check-imports": "ts-node scripts/check-imports.ts",
         "check-core-type-defs": "ts-node scripts/check-core-type-defs.ts",
         "check-angular-versions": "ts-node scripts/check-angular-versions.ts",
-        "generate-changelog": "ts-node scripts/changelogs/generate-changelog.ts",
         "publish-release": "lerna publish -m \"chore: Publish %s\" --no-push --force-publish --dist-tag v-2",
         "publish-prerelease": "lerna publish -m \"chore: Pre-release %s\" prerelease --exact --no-push --force-publish --preid next --dist-tag next",
         "publish-local": "lerna version --force-publish --no-git-tag-version && cd scripts && ./publish-to-verdaccio.sh"
