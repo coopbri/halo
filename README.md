@@ -18,13 +18,6 @@ An open-source headless commerce platform built on [Node.js](https://nodejs.org)
 * [Live Demo](https://demo.vendure.io/)
 * [Vendure Discord](https://www.vendure.io/community): Join us on Discord for support and answers to your questions
 
-## Branches
-
-- `master` - The latest stable release, currently the 2.x series.
-- `minor` - The next patch release, including new features
-- `major` - The next major release (v3.0)
-- `v1` - The 1.x series, which is no longer actively developed but may still receive critical fixes.
-
 ## Structure
 
 This project is a monorepo managed with [Lerna](https://github.com/lerna/lerna). Several npm packages are published from this repo, which can be found in the `packages/` directory.
