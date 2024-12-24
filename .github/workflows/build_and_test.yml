@@ -14,17 +14,13 @@ on:
             - minor
 env:
     CI: true
-    node: 20.x
 jobs:
     build:
         name: build
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
-            - name: Use Node.js ${{ env.node }}
-              uses: actions/setup-node@v3
-              with:
-                  node-version: ${{ env.node }}
+            - uses: oven-sh/setup-bun@v2
             - name: bun install
               run: |
                   bun install
@@ -36,10 +32,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
-            - name: Use Node.js ${{ env.node }}
-              uses: actions/setup-node@v3
-              with:
-                  node-version: ${{ env.node }}
+            - uses: oven-sh/setup-bun@v2
             - name: bun install
               run: |
                   bun install
@@ -82,10 +75,7 @@ jobs:
                 db: [sqljs, postgres]
         steps:
             - uses: actions/checkout@v3
-            - name: Use Node.js ${{ env.node }}
-              uses: actions/setup-node@v3
-              with:
-                  node-version: ${{ env.node }}
+            - uses: oven-sh/setup-bun@v2
             - name: bun install
               run: |
                   bun install
