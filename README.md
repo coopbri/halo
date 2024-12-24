@@ -1,5 +1,5 @@
 > [!WARNING]
-> This project was recently forked from Vendure v2 (MIT) due to Vendure switching to a copyleft license (GPLv3). Expect codebase turbulence and **do not** use this in production yet. Credit will be given to the original authors of this project.
+> This project was recently forked from Vendure v2 (MIT) due to Vendure switching to a copyleft license (GPLv3). Expect codebase turbulence and **do not** use this in production yet.
 
 # Halo
 
